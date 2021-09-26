@@ -54,15 +54,14 @@ The machines on the internal network are not exposed to the public Internet.
 
 Only the JumpBoxProvisioner machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
 
-- Public IP address 
+Public IP address 
 
-• Machines within the network can only be accessed by JumpBoxProvisioner
-
+Machines within the network can only be accessed by JumpBoxProvisioner
 Which machine did you allow to access your ELK VM? 
-- JumpBoxprovisioner’s Public IP address
+-JumpBoxprovisioner’s Public IP address
 
 What was its IP address? 
-52.170.222.238
+  52.170.222.238
 
 A summary of the access policies in place can be found in the table below.
 
@@ -100,16 +99,17 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-List the IP addresses of the machines you are monitoring_
+List the IP addresses of the machines you are monitoring:
 
-Machines		   Private IP Addresses
-Web-1			   10.0.0.5
-Web-2			   10.0.0.6
-Web-3 		       10.0.0.7
+| Machines | Private IP Addresses |
+|----------|----------------------|
+| Web-1    | 10.0.0.5             |
+| Web-2    | 10.0.0.6             |
+| Web-3    | 10.0.0.7             |
+
 
 We have installed the following Beats on these machines:
-* Filebeat: It is an agent installed on the server that is responsible for monitoring specific log files or directories and transfers them to elasticsearch or logstash for the purpose of indexing. 
-* Filebeat sends information from logs such as audit, server, gc, slow and deprication. For eg: Auditd that collects audit events or some type of activities to facilitate incident investigation.
+* Filebeat: It is an agent installed on the server that is responsible for monitoring specific log files or directories and transfers them to elasticsearch or logstash for the purpose of indexing. Filebeat sends information from logs such as audit, server, gc, slow and deprication. For eg: Auditd that collects audit events or some type of activities to facilitate incident investigation.
 * Metricbeat: Metricbeat is a lightweight shipper that collects OS’s data and from services running on the server such as memory, network, process, load and CPU. Eg: apache.
 
 ### Using the Playbook
@@ -121,22 +121,22 @@ SSH into the control node and follow the steps below:
 - Run the playbook, and navigate to ____ to check that the installation worked as expected.
 
  Answer the following questions to fill in the blanks:
-- Which file is the playbook? Where do you copy it?
+Which file is the playbook? Where do you copy it?
 
-Install-elk.yml copied to /etc/ansible/files
+* Install-elk.yml copied to /etc/ansible/files
 
-- Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?
+Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?
 
 * install-elk.yml on Elk machine
 * filebeat-playbook.yml  on Elk / Webservers 1, 2 & 3
 * metricbeat-playbook.yml on Elk / Webservers 1, 2 & 3
 
 
-- Which URL do you navigate to in order to check that the ELK server is running?
+Which URL do you navigate to in order to check that the ELK server is running?
  
-Elk’s Public IP address:5601/app/kibana
+* Elk’s Public IP address:5601/app/kibana
 
-- As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 
 * ssh RedAdmin@52.170.222.238
 * sudo docker container list -a
