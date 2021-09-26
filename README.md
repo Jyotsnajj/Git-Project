@@ -8,48 +8,7 @@ The files in this repository were used to configure the network depicted below.
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the ansible playbook file may be used to install only certain pieces of it, such as Filebeat.
 
    install-playbook.yml
----
-- name: Config elk VM with Docker
-  hosts: elk
-  remote_user: RedAdmin
-  become: true
-  tasks:
-  - name: docker.io
-    apt:
-      force_apt_get: yes
-      update_cache: yes
-      name: docker.io
-      state: present
-
-  - name: Install pip3
-    apt:
-      force_apt_get: yes
-      name: python3-pip
-      state: present
-
-  - name: Install Docker python module
-    pip:
-      name: docker
-      state: present
-
-  - name: Use more memory
-    sysctl:
-      name: vm.max_map_count
-      value: "262144"
-      state: present
-      reload: yes
-
-  - name: download and launch a docker elk container
-    docker_container:
-      name: elk
-      image: sebp/elk:761
-      state: started
-      restart_policy: always
-      published_ports:
-      - 5601:5601
-      - 9200:9200
-      - 5044:5044
-
+![install-playbook.yml](file:///C:/Users/jyots/Documents/Git-Project/Screenshot%202021-09-26%20060942.png)   
 
 This document contains the following details:
 - Description of the Topology
@@ -177,15 +136,15 @@ Elk’s Public IP address:5601/app/kibana
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 
-ssh RedAdmin@52.170.222.238
-sudo docker container list -a
-sudo docker start vigorous_burnell
-sudo docker attach vigorous_burnell
-cd /etc/ansible
-create folders: files, roles
-Download the config files into file folder
-Create and update playbook and save in Roles folder
-Run playbook using: ansible-playbook filename.yml
+-ssh RedAdmin@52.170.222.238
+-sudo docker container list -a
+-sudo docker start vigorous_burnell
+-sudo docker attach vigorous_burnell
+-cd /etc/ansible
+-create folders: files, roles
+-Download the config files into file folder
+-Create and update playbook and save in Roles folder
+-Run playbook using: ansible-playbook filename.yml
 
 
 
