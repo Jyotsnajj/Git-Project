@@ -25,15 +25,18 @@ The main purpose of this network is to expose a load-balanced and monitored inst
 
 Load balancing ensures that the application will be highly available, in addition to restricting inbound access to the network.
 
-What aspect of security do load balancers protect? What is the advantage of a jump box?_
+What aspect of security do load balancers protect? What is the advantage of a jump box?
 
-Load Balancer protects network security from attacks by efficiently distributing the network traffic among other servers in the backend pool and thus maintains the efficiency and flow of data.  The advantage of jumpbox is that it acts as pinhole into the environment that enables to access other servers/VM’s on the network, through its public IP address. Hence it secures the internal web servers from untrusted sources of network.
+- Load Balancer protects network security from attacks by efficiently distributing the network traffic among other servers in the backend pool and thus maintains the efficiency and flow of data.  
+- The advantage of jumpbox is that it acts as pinhole into the environment that enables to access other servers/VM’s on the network, through its public IP address. Hence it secures the internal web servers from untrusted sources of network.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the JumpBoxProvisioner and system network.
 
- What does Filebeat watch for?: It watches for any changes or state of file and transfers its state to disk in the file registry.
+ What does Filebeat watch for?
+- It watches for any changes or state of file and transfers its state to disk in the file registry.
  
- What does Metricbeat record?_It records metrics such as CPU, memory and load from the system and services running on the server.
+ What does Metricbeat record?
+- It records metrics such as CPU, memory and load from the system and services running on the server.
 
 The configuration details of each machine may be found below.
 
@@ -53,12 +56,12 @@ Only the JumpBoxProvisioner machine can accept connections from the Internet. Ac
 
 - Public IP address 
 
-Machines within the network can only be accessed by JumpBoxProvisioner
+• Machines within the network can only be accessed by JumpBoxProvisioner
 
 Which machine did you allow to access your ELK VM? 
-JumpBoxprovisioner’s Public IP address
+- JumpBoxprovisioner’s Public IP address
 
-What was its IP address? _
+What was its IP address? 
 52.170.222.238
 
 A summary of the access policies in place can be found in the table below.
@@ -81,7 +84,7 @@ Fast, efficient, and fairly consistent with very little latency. The ansible pla
 
 
 The playbook implements the following tasks:
-In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
+
 * Install docker .io
 * Install pip3
 * Install Docker python module
@@ -91,7 +94,6 @@ In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Do
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
 
 ![Docker.ps](https://github.com/Jyotsnajj/Git-Project/blob/1b6bf4a9c9b28cf43b5c12beaadeffaba71c07bc/Images/docker%20ps%20-Screenshot%202021-09-22%20111710.png)
 
@@ -107,7 +109,7 @@ Web-3 		       10.0.0.7
 
 We have installed the following Beats on these machines:
 * Filebeat: It is an agent installed on the server that is responsible for monitoring specific log files or directories and transfers them to elasticsearch or logstash for the purpose of indexing. 
-o Filebeat sends information from logs such as audit, server, gc, slow and deprication. For eg: Auditd that collects audit events or some type of activities to facilitate incident investigation.
+* Filebeat sends information from logs such as audit, server, gc, slow and deprication. For eg: Auditd that collects audit events or some type of activities to facilitate incident investigation.
 * Metricbeat: Metricbeat is a lightweight shipper that collects OS’s data and from services running on the server such as memory, network, process, load and CPU. Eg: apache.
 
 ### Using the Playbook
@@ -118,33 +120,33 @@ SSH into the control node and follow the steps below:
 - Update the _____ file to include...
 - Run the playbook, and navigate to ____ to check that the installation worked as expected.
 
- Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
+ Answer the following questions to fill in the blanks:
+- Which file is the playbook? Where do you copy it?
 
 Install-elk.yml copied to /etc/ansible/files
 
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
+- Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?
 
-install-elk.yml on Elk machine
-filebeat-playbook.yml  on Elk / Webservers 1, 2 & 3
-metricbeat-playbook.yml on Elk / Webservers 1, 2 & 3
+* install-elk.yml on Elk machine
+* filebeat-playbook.yml  on Elk / Webservers 1, 2 & 3
+* metricbeat-playbook.yml on Elk / Webservers 1, 2 & 3
 
 
-- _Which URL do you navigate to in order to check that the ELK server is running?
+- Which URL do you navigate to in order to check that the ELK server is running?
  
 Elk’s Public IP address:5601/app/kibana
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+- As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 
-• ssh RedAdmin@52.170.222.238
-• sudo docker container list -a
-• sudo docker start vigorous_burnell
-• sudo docker attach vigorous_burnell
-• cd /etc/ansible
-• create folders: files, roles
-• Download the config files into file folder
-• Create and update playbook and save in Roles folder
-• Run playbook using: ansible-playbook filename.yml
+* ssh RedAdmin@52.170.222.238
+* sudo docker container list -a
+* sudo docker start vigorous_burnell
+* sudo docker attach vigorous_burnell
+* cd /etc/ansible
+* create folders: files, roles
+* Download the config files into file folder
+* Create and update playbook and save in Roles folder
+* Run playbook using: ansible-playbook filename.yml
 
 
 
